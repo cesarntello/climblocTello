@@ -1,0 +1,471 @@
+@import "variables";
+
+.titlePages{
+    color: $colorTitle;
+    font-weight:lighter;
+    font-family: $fontTitle; 
+    text-align: center;
+}
+@mixin imgAside ($alto, $padding, $transition){
+        height: $alto;
+        padding: $padding;
+        transition: $transition;
+    
+}
+.maxWidth{
+        max-width: 100%;
+        max-height: 100%;
+}
+/*Grid*/
+.grillaBody{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto 1fr 4fr 5fr auto;
+    grid-template-areas:
+                        "header header"
+                        "menu menu"
+                        "presentacion presentacion"
+                        "imagen imagen"
+                        "section aside"
+                        "footer footer"; 
+                        .headerPadre{
+                            max-width: 100%;
+                            height: auto;
+                            grid-area: header;
+                        }
+                        nav{
+                            grid-area: menu;    
+                        }
+                        .presentacion{ 
+                            justify-self: stretch;
+                            grid-area: presentacion;
+                            align-self: center;
+                            .titleHome{
+                                @extend .titlePages;
+                            }
+                        }                    
+                        body{
+                            margin: 0%;
+                        }
+                        .imagenBody{
+                            margin: 0px;
+                            width: 100%;
+                            height: 100%;
+                            align-items: center;
+                            justify-items: center;
+                            grid-area: imagen;
+                            .carousel-item{
+                                transition: 1s;
+                            }
+                        }
+                        .section{
+                            font-size: 20px;
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: lighter;
+                            grid-area: section;
+                            justify-self: center;
+                            align-self: center;
+                            padding: 24px;
+                            position: relative;
+                            justify-content: center;
+                            &__title{
+                                font-size: 30px;
+                                font-family: $fontTitle;
+                                color: darken($colorTitle, 30%);
+                                font-weight: 500;
+                                text-decoration: underline;
+                                justify-self: center;
+                                padding-left: 12px;
+                            }
+                            &__text{
+                                padding: 12px;
+                            }
+                            &__card{
+                                display: flex;
+                                justify-content: center;
+                            }
+                        }
+                        
+
+}
+/*Form*/
+
+.grillaBodyForm{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto 3fr 20%;
+    grid-template-areas: "header"
+                         "menu"
+                         "mainForm"
+                         "footer";                   
+
+                         .mainForm{
+                            margin: 20px;
+                            fieldset{
+                                color: dodgerblue;
+                                margin-top: 100px;
+                            }  
+                            form{
+                                font-family: 'Roboto', sans-serif;
+                        
+                                legend{
+                                    font-family: 'Roboto', sans-serif;
+                                }
+                                input{
+                                    color: $colorImput;
+                                }
+                                .modal-body{
+                                    color: black;
+                                }
+                            }
+                        }
+}
+/*estilo p y a*/
+p{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    font-family: 'Roboto', sans-serif;
+}
+/*grilla tabla*/
+
+.grillaBodyTabla{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto 4fr 10%;
+    grid-template-areas: "header"
+                         "menu"
+                         "mainTabla"
+                         "footer";
+                         
+
+                         .tablePadre{
+                            grid-area: mainTabla;
+                            margin: 20px + 10px;
+                            justify-items: center;
+                            font-family: 'Roboto';
+                            &__title{
+                                @extend .titlePages;
+                            }
+                            
+                            &__img{
+                                width: 100%;
+                                margin: 0px;
+                            }
+                            .tablePadre__titleDos{
+                                
+                                @extend .titlePages;
+                                font-weight: 300;
+                                text-decoration: underline;
+                            }                              
+                            &__cruzTabla{
+                                color: $colorCruz;
+                                width: 100px;
+                                margin: 0%;
+                                text-align: center;
+                            }
+                            &__checkTabla{
+                                width: 100px;
+                                color:$coloarCheck;
+                                margin: 0%;
+                                text-align: center;
+                            }
+                            
+                        }
+}
+/*cv*/
+.grillaBodyCv{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows:auto auto 4fr 20%;
+    grid-template-areas: "header"
+                         "menu"
+                         "mainCV"
+                         "footer";
+                         .cv{
+                            margin: 10px;
+                            grid-area: mainCV;
+                            &__title{
+                                @extend .titlePages;
+                            }
+                            &__img{
+                                width: 100%;
+                                justify-self: center;
+                            }
+                            &__text{
+                                margin-top: 50px;
+                            }
+                         }
+}
+
+.aside{
+    max-width: 100%;
+    max-height: 100%;
+    padding: 12px;
+    grid-area: aside;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "imgUno imgDos"
+                         "imgTres imgCuatro";
+    &__imgUno{
+        @include imgAside($alto, $padding, $transition);
+        grid-area: imgUno;
+    }
+        &__imgUnoHijo{
+            @extend .maxWidth;
+    }
+    &--activo :hover{
+        transform: scale(1.1,1.1);     
+    }
+    
+    &__imgDos{
+        @include imgAside($alto, $padding, $transition); 
+        grid-area: imgDos;    
+         &__imgDosHijo{
+            @extend .maxWidth;
+        }
+    }
+    &__imgTres{
+        @include imgAside($alto, $padding, $transition);
+        grid-area: imgTres;
+         &__imgTresHijo{
+            @extend .maxWidth;
+        }
+    }
+    &__imgCuatro{
+        @include imgAside($alto, $padding, $transition);
+        grid-area: imgCuatro;
+        &__imgCuatroHijo{
+            @extend .maxWidth;
+        }
+    }   
+}
+/*estilo footer*/
+.footer{
+    font-family: 'Roboto', sans-serif;    
+    background: $footerBackground;
+    padding: 20px;
+    grid-area: footer;
+    width: 100%;
+    height: 100px;
+    &__contenedor{
+        display: flex;
+        justify-content: space-between;   
+    }
+    &__estilo{
+        color: whitesmoke;
+    }
+    &__der{
+        color: white;
+        margin-right: 20px;
+    }
+}
+/*"Comunidad" */
+.grillaBodyComunidad{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto 4fr 5%;
+    grid-template-areas: "header"
+                         "menu"
+                         "main"
+                         "footer";
+                         .comunidad{
+                            margin: 12px;
+                            grid-area: main;
+                            &__titulo{
+                                @extend .titlePages;
+                            }
+                            &__contenedor{
+                                display: flex;
+                                justify-content: stretch;
+                            }
+                            &__text{
+                                width: 50%;
+                                padding: 30px;
+                                font-family: 'Roboto', sans-serif; 
+                                font-weight: 100;
+                                justify-self: center;
+                            }
+                            &__iframeContenedor{
+                                display: flex;
+                                justify-content: center;
+                            }
+                            &__iframe{
+                                width: 480px;
+                                height: 280px;
+                                align-items: flex-end;   
+                                justify-self: center; 
+                            }
+
+                        }
+}
+/*Galeria Flex*/
+.grillaBodyGaleria{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto 5fr 15%;
+    grid-template-areas: "header"
+                         "menu"
+                         "mainGaleria"
+                         "footer";
+                         .galeria{
+                            grid-area: mainGaleria;
+                            height: 100%;
+                            &__titulo{
+                                @extend .titlePages;
+                            }
+                            &__contenedor{
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                margin: 14px;
+                                
+                                
+                            }
+                            &__img{
+                                margin: 5px;
+                                padding: 10px;
+                                align-items: center;
+                                justify-content: center;
+                                display: flex;  
+                                transition: all 1s;  
+                            }
+                            &__img:hover{
+                                transform: scale(2,2);
+                            }
+                            &__imgHijo{
+                                width: 300px
+                            }
+                            .back{
+                                margin-left: 20px;
+                            }
+                        }
+}
+/*Descarga*/
+.grillaBodyDescarga{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto 4fr 20%;
+    grid-template-areas: "header header"
+                         "menu menu"
+                         "mainDescarga mainImgDesc"
+                         "footer footer";  
+                         .headerPadre{
+                             grid-area: header;
+                         }
+                         .navbar{
+                             grid-area: menu;
+                         }
+                         .descarga{
+                            margin-top: 20px;
+                            margin-left: 20px;
+                            grid-area: mainDescarga;
+                            &__title{
+                                @extend .titlePages;
+                            }
+                            &__img{
+                                margin-bottom: 20px;
+                            }
+                            &__back{
+                                font-family: 'Roboto', sans-serif;
+                                margin-top: 20px;
+                            }
+                        }
+                        .imgDescarga{
+                            height: 100%;
+                            grid-area: mainImgDesc;
+                            .imgDescargaHijo{
+                                max-width: 100%;
+                                height: auto;
+                            }
+                        }
+}
+/*MediaQuery*/
+        @media only screen and (max-width: 768px){
+                 
+            .grillaBody{
+                grid-template-columns: 100%;
+                grid-template-rows: auto auto .4fr 1fr 1.3fr 3fr 4%;
+                grid-template-areas:
+                                    "header"
+                                    "menu"
+                                    "presentacion"
+                                    "imagen"
+                                    "section"
+                                    "aside"
+                                    "footer";
+            }                   
+            .comunidad__contenedor{ 
+                flex-direction: column;                   
+            }
+            .grillaBodyDescarga{
+                grid-template-columns: 100%;
+                grid-template-rows: auto auto 2fr 2fr 20%;
+                grid-template-areas: "header"
+                                     "menu"
+                                     "mainDescarga" 
+                                     "mainImgDesc"
+                                     "footer";
+            }
+            .grillaBodyTabla{
+                display: grid;
+                grid-template-columns: 100%;
+                grid-template-rows: auto auto 4fr 20%;
+                grid-template-areas: "header"
+                                     "menu"
+                                     "mainTabla"
+                                     "footer";
+            }  
+            .imgDescarga{
+                justify-items: center;
+            }
+}
+
+        @media only screen and (max-width: 480px) {
+
+               
+        
+            .aside{
+                    grid-template-columns: 100%;
+                    grid-template-rows: 25% 25% 25% 25%;
+                    grid-template-areas: "imgUno" 
+                                         "imgDos"
+                                         "imgTres" 
+                                         "imgCuatro";
+            }         
+            .comunidad__iframeContenedor{
+                    display: flex;
+                    justify-content: center;
+            }   
+            .comunidad__iframe{
+                    width: 65%;
+                    height: auto;
+                    justify-items: center;       
+            }
+            .grillaBody{
+                grid-template-columns: 100%;
+                grid-template-rows: auto auto 0.0457fr 0.1fr .3fr 1fr 10%;
+                grid-template-areas:
+                                    "header"
+                                    "menu"
+                                    "presentacion"
+                                    "imagen"
+                                    "section"
+                                    "aside"
+                                    "footer";
+            }     
+                                                               
+                                    .aside__imgUno :hover{
+                                        transform: scale(1,1); 
+                                    }
+                                    .aside__imgDos :hover{
+                                        transform: scale(1,1);  
+                                    }
+                                    .aside__imgTres :hover{
+                                        transform: scale(1,1);  
+                                    }
+                                    .aside__imgCuatro :hover{
+                                        transform: scale(1,1);  
+                                    }                    
+}
