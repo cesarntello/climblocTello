@@ -251,7 +251,8 @@ a {
       margin-bottom: 20px; }
     .grillaBodyDescarga .descarga__back {
       font-family: 'Roboto', sans-serif;
-      margin-top: 20px; }
+      margin-top: 20px;
+      margin-bottom: 20px; }
   .grillaBodyDescarga .imgDescarga {
     height: 100%;
     grid-area: mainImgDesc; }
