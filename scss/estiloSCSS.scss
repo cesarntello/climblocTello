@@ -20,7 +20,7 @@
 .grillaBody{
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto 1fr 4fr 5fr auto;
+    grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas:
                         "header header"
                         "menu menu"
@@ -73,7 +73,6 @@
                                 font-family: $fontTitle;
                                 color: darken($colorTitle, 30%);
                                 font-weight: 500;
-                                text-decoration: underline;
                                 justify-self: center;
                                 padding-left: 12px;
                             }
@@ -93,7 +92,7 @@
 .grillaBodyForm{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto auto 3fr 20%;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "header"
                          "menu"
                          "mainForm"
@@ -101,6 +100,11 @@
 
                          .mainForm{
                             margin: 20px;
+                            display: flex;
+                            .mapForm{
+                                justify-self: center;
+                                margin-top: 150px;
+                            }
                             fieldset{
                                 color: dodgerblue;
                                 margin-top: 100px;
@@ -111,12 +115,16 @@
                                 legend{
                                     font-family: 'Roboto', sans-serif;
                                 }
-                                input{
-                                    color: $colorImput;
-                                }
+
                                 .modal-body{
                                     color: black;
                                 }
+                            }
+                            .back{ 
+                                margin-top: 20px;
+                            }
+                            .iframeForm{
+                                max-width: 100%;
                             }
                         }
 }
@@ -132,7 +140,7 @@ a{
 .grillaBodyTabla{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto auto 4fr 10%;
+    grid-template-rows: repeat(4, auto);
     grid-template-areas: "header"
                          "menu"
                          "mainTabla"
@@ -142,6 +150,7 @@ a{
                          .tablePadre{
                             grid-area: mainTabla;
                             margin: 20px + 10px;
+                            height: calc(100vh - 100px -100px);
                             justify-items: center;
                             font-family: 'Roboto';
                             &__title{
@@ -156,7 +165,7 @@ a{
                                 
                                 @extend .titlePages;
                                 font-weight: 300;
-                                text-decoration: underline;
+
                             }                              
                             &__cruzTabla{
                                 color: $colorCruz;
@@ -177,12 +186,13 @@ a{
 .grillaBodyCv{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows:auto auto 4fr 20%;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "header"
                          "menu"
                          "mainCV"
                          "footer";
                          .cv{
+                            height: 100%;
                             margin: 10px;
                             grid-area: mainCV;
                             &__title{
@@ -194,6 +204,14 @@ a{
                             }
                             &__text{
                                 margin-top: 50px;
+                            }
+                            .textCv{
+                                font-family: 'Roboto', sans-serif;
+                                margin-top: 20px;
+                            }
+                            .imgTeam{
+                                max-width: 50%;
+                                max-height: 100%;
                             }
                          }
 }
@@ -248,7 +266,7 @@ a{
     padding: 20px;
     grid-area: footer;
     width: 100%;
-    height: 100px;
+    height: 136px;
     &__contenedor{
         display: flex;
         justify-content: space-between;   
@@ -259,6 +277,33 @@ a{
     &__der{
         color: white;
         margin-right: 20px;
+    }
+    &__iconSocial{
+        justify-content: center;
+        margin-top: 60px;
+    }
+    .textSpan{
+        color: white;
+        font-family: 'Roboto', sans-serif;
+    }
+    .fa-instagram{
+        color: white;
+        margin: 6px;
+    }
+    .fab:hover{
+        color: rgb(83, 83, 83);
+    }
+    .fa-facebook{
+        color: white;
+        margin: 6px;
+    }
+    .fa-twitter{
+        color: white;
+        margin: 6px;
+    }
+    .fa-whatsapp{
+        color: white;
+        margin: 6px;
     }
 }
 /*"Comunidad" */
@@ -277,11 +322,11 @@ a{
                                 @extend .titlePages;
                             }
                             &__contenedor{
-                                display: flex;
+                                
                                 justify-content: stretch;
                             }
                             &__text{
-                                width: 50%;
+                                
                                 padding: 30px;
                                 font-family: 'Roboto', sans-serif; 
                                 font-weight: 100;
@@ -296,6 +341,9 @@ a{
                                 height: 280px;
                                 align-items: flex-end;   
                                 justify-self: center; 
+                            }
+                            .back{
+                                margin-top: 12px;
                             }
 
                         }
@@ -345,7 +393,7 @@ a{
 /*Descarga*/
 .grillaBodyDescarga{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 60% 40%;
     grid-template-rows: auto auto 4fr 20%;
     grid-template-areas: "header header"
                          "menu menu"
@@ -360,6 +408,7 @@ a{
                          .descarga{
                             margin-top: 20px;
                             margin-left: 20px;
+                            margin-right: 20px;
                             grid-area: mainDescarga;
                             &__title{
                                 @extend .titlePages;
@@ -374,12 +423,18 @@ a{
                             }
                         }
                         .imgDescarga{
+                            
                             height: 100%;
                             grid-area: mainImgDesc;
+                            padding: 30px;
                             .imgDescargaHijo{
                                 max-width: 100%;
                                 height: auto;
+                                object-fit: cover;
                             }
+                        }
+                        .card{
+                            margin-top: 12px;
                         }
 }
 /*MediaQuery*/
@@ -387,7 +442,7 @@ a{
                  
             .grillaBody{
                 grid-template-columns: 100%;
-                grid-template-rows: auto auto .4fr 1fr 1.3fr 3fr 4%;
+                grid-template-rows: auto auto auto auto auto auto auto;
                 grid-template-areas:
                                     "header"
                                     "menu"
@@ -397,12 +452,13 @@ a{
                                     "aside"
                                     "footer";
             }                   
-            .comunidad__contenedor{ 
-                flex-direction: column;                   
+            
+            .comunidad__text{
+                width: 80%;
             }
             .grillaBodyDescarga{
                 grid-template-columns: 100%;
-                grid-template-rows: auto auto 2fr 2fr 20%;
+                grid-template-rows: auto auto auto auto auto;
                 grid-template-areas: "header"
                                      "menu"
                                      "mainDescarga" 
@@ -412,7 +468,7 @@ a{
             .grillaBodyTabla{
                 display: grid;
                 grid-template-columns: 100%;
-                grid-template-rows: auto auto 4fr 20%;
+                grid-template-rows: auto auto auto auto;
                 grid-template-areas: "header"
                                      "menu"
                                      "mainTabla"
@@ -420,6 +476,15 @@ a{
             }  
             .imgDescarga{
                 justify-items: center;
+            }
+            .mainForm{
+                flex-direction: column;
+            }
+            .col-4{
+                width: 100%;
+            }
+            .grillaBodyForm .mainForm .mapForm{
+                margin-top: 50px;
             }
 }
 
@@ -434,9 +499,10 @@ a{
                                          "imgDos"
                                          "imgTres" 
                                          "imgCuatro";
-            }         
+            }   
+             
             .comunidad__iframeContenedor{
-                    display: flex;
+                   
                     justify-content: center;
             }   
             .comunidad__iframe{
@@ -468,5 +534,17 @@ a{
                                     }
                                     .aside__imgCuatro :hover{
                                         transform: scale(1,1);  
-                                    }                    
+                                    }    
+            .col-8{
+                width: 100%;
+            }  
+            .col-6{
+                width: 100%;
+            }          
+            .comunidad__text{
+                width: 100%;
+            }    
+            .mainForm{
+                flex-direction: column;
+            }
 }

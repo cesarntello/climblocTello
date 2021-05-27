@@ -12,7 +12,7 @@
 .grillaBody {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto 1fr 4fr 5fr auto;
+  grid-template-rows: auto auto auto auto auto auto;
   grid-template-areas: "header header" "menu menu" "presentacion presentacion" "imagen imagen" "section aside" "footer footer"; }
   .grillaBody .headerPadre {
     max-width: 100%;
@@ -50,7 +50,6 @@
       font-family: "Roboto", sans-serif;
       color: #004384;
       font-weight: 500;
-      text-decoration: underline;
       justify-self: center;
       padding-left: 12px; }
     .grillaBody .section__text {
@@ -63,10 +62,14 @@
 .grillaBodyForm {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto auto 3fr 20%;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas: "header" "menu" "mainForm" "footer"; }
   .grillaBodyForm .mainForm {
-    margin: 20px; }
+    margin: 20px;
+    display: flex; }
+    .grillaBodyForm .mainForm .mapForm {
+      justify-self: center;
+      margin-top: 150px; }
     .grillaBodyForm .mainForm fieldset {
       color: dodgerblue;
       margin-top: 100px; }
@@ -74,10 +77,12 @@
       font-family: 'Roboto', sans-serif; }
       .grillaBodyForm .mainForm form legend {
         font-family: 'Roboto', sans-serif; }
-      .grillaBodyForm .mainForm form input {
-        color: #2265b2; }
       .grillaBodyForm .mainForm form .modal-body {
         color: black; }
+    .grillaBodyForm .mainForm .back {
+      margin-top: 20px; }
+    .grillaBodyForm .mainForm .iframeForm {
+      max-width: 100%; }
 
 /*estilo p y a*/
 p {
@@ -90,19 +95,19 @@ a {
 .grillaBodyTabla {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto auto 4fr 10%;
+  grid-template-rows: repeat(4, auto);
   grid-template-areas: "header" "menu" "mainTabla" "footer"; }
   .grillaBodyTabla .tablePadre {
     grid-area: mainTabla;
     margin: 30px;
+    height: calc(100vh - 100px -100px);
     justify-items: center;
     font-family: 'Roboto'; }
     .grillaBodyTabla .tablePadre__img {
       width: 100%;
       margin: 0px; }
     .grillaBodyTabla .tablePadre .tablePadre__titleDos {
-      font-weight: 300;
-      text-decoration: underline; }
+      font-weight: 300; }
     .grillaBodyTabla .tablePadre__cruzTabla {
       color: #c21515;
       width: 100px;
@@ -118,9 +123,10 @@ a {
 .grillaBodyCv {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto auto 4fr 20%;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas: "header" "menu" "mainCV" "footer"; }
   .grillaBodyCv .cv {
+    height: 100%;
     margin: 10px;
     grid-area: mainCV; }
     .grillaBodyCv .cv__img {
@@ -128,6 +134,12 @@ a {
       justify-self: center; }
     .grillaBodyCv .cv__text {
       margin-top: 50px; }
+    .grillaBodyCv .cv .textCv {
+      font-family: 'Roboto', sans-serif;
+      margin-top: 20px; }
+    .grillaBodyCv .cv .imgTeam {
+      max-width: 50%;
+      max-height: 100%; }
 
 .aside {
   max-width: 100%;
@@ -168,7 +180,7 @@ a {
   padding: 20px;
   grid-area: footer;
   width: 100%;
-  height: 100px; }
+  height: 136px; }
   .footer__contenedor {
     display: flex;
     justify-content: space-between; }
@@ -177,6 +189,26 @@ a {
   .footer__der {
     color: white;
     margin-right: 20px; }
+  .footer__iconSocial {
+    justify-content: center;
+    margin-top: 60px; }
+  .footer .textSpan {
+    color: white;
+    font-family: 'Roboto', sans-serif; }
+  .footer .fa-instagram {
+    color: white;
+    margin: 6px; }
+  .footer .fab:hover {
+    color: #535353; }
+  .footer .fa-facebook {
+    color: white;
+    margin: 6px; }
+  .footer .fa-twitter {
+    color: white;
+    margin: 6px; }
+  .footer .fa-whatsapp {
+    color: white;
+    margin: 6px; }
 
 /*"Comunidad" */
 .grillaBodyComunidad {
@@ -188,10 +220,8 @@ a {
     margin: 12px;
     grid-area: main; }
     .grillaBodyComunidad .comunidad__contenedor {
-      display: flex;
       justify-content: stretch; }
     .grillaBodyComunidad .comunidad__text {
-      width: 50%;
       padding: 30px;
       font-family: 'Roboto', sans-serif;
       font-weight: 100;
@@ -204,6 +234,8 @@ a {
       height: 280px;
       align-items: flex-end;
       justify-self: center; }
+    .grillaBodyComunidad .comunidad .back {
+      margin-top: 12px; }
 
 /*Galeria Flex*/
 .grillaBodyGaleria {
@@ -236,7 +268,7 @@ a {
 /*Descarga*/
 .grillaBodyDescarga {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 60% 40%;
   grid-template-rows: auto auto 4fr 20%;
   grid-template-areas: "header header" "menu menu" "mainDescarga mainImgDesc" "footer footer"; }
   .grillaBodyDescarga .headerPadre {
@@ -246,6 +278,7 @@ a {
   .grillaBodyDescarga .descarga {
     margin-top: 20px;
     margin-left: 20px;
+    margin-right: 20px;
     grid-area: mainDescarga; }
     .grillaBodyDescarga .descarga__img {
       margin-bottom: 20px; }
@@ -255,30 +288,40 @@ a {
       margin-bottom: 20px; }
   .grillaBodyDescarga .imgDescarga {
     height: 100%;
-    grid-area: mainImgDesc; }
+    grid-area: mainImgDesc;
+    padding: 30px; }
     .grillaBodyDescarga .imgDescarga .imgDescargaHijo {
       max-width: 100%;
-      height: auto; }
+      height: auto;
+      object-fit: cover; }
+  .grillaBodyDescarga .card {
+    margin-top: 12px; }
 
 /*MediaQuery*/
 @media only screen and (max-width: 768px) {
   .grillaBody {
     grid-template-columns: 100%;
-    grid-template-rows: auto auto .4fr 1fr 1.3fr 3fr 4%;
+    grid-template-rows: auto auto auto auto auto auto auto;
     grid-template-areas: "header" "menu" "presentacion" "imagen" "section" "aside" "footer"; }
-  .comunidad__contenedor {
-    flex-direction: column; }
+  .comunidad__text {
+    width: 80%; }
   .grillaBodyDescarga {
     grid-template-columns: 100%;
-    grid-template-rows: auto auto 2fr 2fr 20%;
+    grid-template-rows: auto auto auto auto auto;
     grid-template-areas: "header" "menu" "mainDescarga"  "mainImgDesc" "footer"; }
   .grillaBodyTabla {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto auto 4fr 20%;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "header" "menu" "mainTabla" "footer"; }
   .imgDescarga {
-    justify-items: center; } }
+    justify-items: center; }
+  .mainForm {
+    flex-direction: column; }
+  .col-4 {
+    width: 100%; }
+  .grillaBodyForm .mainForm .mapForm {
+    margin-top: 50px; } }
 
 @media only screen and (max-width: 480px) {
   .aside {
@@ -286,7 +329,6 @@ a {
     grid-template-rows: 25% 25% 25% 25%;
     grid-template-areas: "imgUno"  "imgDos" "imgTres"  "imgCuatro"; }
   .comunidad__iframeContenedor {
-    display: flex;
     justify-content: center; }
   .comunidad__iframe {
     width: 65%;
@@ -303,4 +345,12 @@ a {
   .aside__imgTres :hover {
     transform: scale(1, 1); }
   .aside__imgCuatro :hover {
-    transform: scale(1, 1); } }
+    transform: scale(1, 1); }
+  .col-8 {
+    width: 100%; }
+  .col-6 {
+    width: 100%; }
+  .comunidad__text {
+    width: 100%; }
+  .mainForm {
+    flex-direction: column; } }
