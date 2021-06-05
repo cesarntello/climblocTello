@@ -29,6 +29,9 @@
     justify-self: stretch;
     grid-area: presentacion;
     align-self: center; }
+  .grillaBody .presentacion .titleHome {
+      margin-top: 20px;
+      margin-bottom: 20px; }
   .grillaBody body {
     margin: 0%; }
   .grillaBody .imagenBody {
